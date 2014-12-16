@@ -1,0 +1,185 @@
+<head>
+<style>
+table.conjoint_table{border-collapse:collapse; border:1px solid black; }
+table.conjoint_table th{border-collapse:collapse; border:1px solid black; padding:5px; }
+table.conjoint_table td{border-collapse:collapse; border:1px solid black; padding:5px; }
+</style>
+</head>
+
+<span> Scenario 2 out of 5 </span>
+
+<!--Create HTML table-->
+<font size="3">
+<table width="90%" class="conjoint_table">
+  <col width="140">
+  <col width="140">
+  <tbody><tr>
+  <th><b>Candidate C</b></th>
+  <th><b>Candidate D</b></th>
+  </tr>
+<!--Create Placeholders for dimensions names (e.g., "att1") -->
+<!--Create Placeholders for candidate traits (e.g., "a1" for first candidate, "b1" for second candidate) -->
+  <tr>
+  <td id="a1"><br></td>
+  <td id="b1"><br></td>
+  </tr>
+  <tr>
+  <td id="a2"><br></td>
+  <td id="b2"><br></td>
+  </tr>
+  <tr>
+  <td id="a3"><br></td>
+  <td id="b3"><br></td>
+  </tr>
+  <tr>
+  <td id="a4"><br></td>
+  <td id="b4"><br></td>
+  </tr>
+  <tr>
+  <td id="a5"><br></td>
+  <td id="b5"><br></td>
+  </tr>
+  <tr>
+  <td id="a6"><br></td>
+  <td id="b6"><br></td>
+  </tr>
+  <tr>
+  <td id="a7"><br></td>
+  <td id="b7"><br></td>
+  </tr>
+  <tr>
+  <td id="a8"><br></td>
+  <td id="b8"><br></td>
+  </tr>
+  <tr>
+  <td id="a9"><br></td>
+  <td id="b9"><br></td>
+  </tr>
+  <tr>
+  <td id="a10"><br></td>
+  <td id="b10"><br></td>
+  </tr>
+  </tbody></table>
+</font>
+ 
+<script>
+
+// Read in Dimension Order from first module. Maintain this order across modules
+var str = "${q://QID122/ChoiceTextEntryValue/21}"; 
+var attributes=str.split(","); 
+
+// Create Variables for Traits associated with each dimension.
+var pid_raw = ["Democrat","Republican","Independent"];
+var care_raw = ["Cares about other people",
+	"Does not care about other people"];
+var honesty_raw = ["Honest",
+	"Not honest"];
+var egal_raw = ["Treats everyone equally",
+	"Does not treat everyone equally"];
+var authority_raw = ["Respectful of authority",
+	"Not respectful of authority"];
+var loyalty_raw = ["Loyal",
+	"Not loyal"];
+var purity1_raw = ["Sexually faithful to his wife",
+	"Not sexually faithful to his wife"];
+//var purity2_raw = ["Watches pornography","Never watches pornography"];
+var purity2_raw = ["Disgusted by homosexuality",
+ "Not disgusted by homosexuality"];
+var competence_raw = ["Competent",
+	"Not competent"];
+var experience_raw = ["Experienced",
+	"Not experienced"];
+	
+	
+	
+// Endorsements constrained not to duplicate
+//var pid_rawa = ["Democrat","Democrat","Republican","Republican","Independent","Independent","Independent"];
+//var pid_rawb = ["Republican","Independent","Democrat","Independent","Democrat","Republican","Independent"];
+//var pid_rand1 = Math.floor(Math.random()*party_rawa.length);
+
+
+//Use math.random to randomly select traits for each dimension for both candidates.
+var pid_a = pid_raw[Math.floor(Math.random()*pid_raw.length)];
+var care_a = care_raw[Math.floor(Math.random()*care_raw.length)];
+var honesty_a = honesty_raw[Math.floor(Math.random()*honesty_raw.length)];
+var egal_a = egal_raw[Math.floor(Math.random()*egal_raw.length)];
+var authority_a = authority_raw[Math.floor(Math.random()*authority_raw.length)];
+var loyalty_a = loyalty_raw[Math.floor(Math.random()*loyalty_raw.length)];
+var purity1_a = purity1_raw[Math.floor(Math.random()*purity1_raw.length)];
+var purity2_a = purity2_raw[Math.floor(Math.random()*purity2_raw.length)];
+var competence_a = competence_raw[Math.floor(Math.random()*competence_raw.length)];
+var experience_a = experience_raw[Math.floor(Math.random()*experience_raw.length)];
+
+var pid_b = pid_raw[Math.floor(Math.random()*pid_raw.length)];
+var care_b = care_raw[Math.floor(Math.random()*care_raw.length)];
+var honesty_b = honesty_raw[Math.floor(Math.random()*honesty_raw.length)];
+var egal_b = egal_raw[Math.floor(Math.random()*egal_raw.length)];
+var authority_b = authority_raw[Math.floor(Math.random()*authority_raw.length)];
+var loyalty_b = loyalty_raw[Math.floor(Math.random()*loyalty_raw.length)];
+var purity1_b = purity1_raw[Math.floor(Math.random()*purity1_raw.length)];
+var purity2_b = purity2_raw[Math.floor(Math.random()*purity2_raw.length)];
+var competence_b = competence_raw[Math.floor(Math.random()*competence_raw.length)];
+var experience_b = experience_raw[Math.floor(Math.random()*experience_raw.length)];
+
+
+
+// Create array for first and second candidate's traits
+var att_a_traits = [1,2,3,4,5,6,7,8,9,10];
+var att_b_traits = [1,2,3,4,5,6,7,8,9,10];
+
+// Take indexOf the Dimension variable. This is the order of the Dimension variable
+var pid_index = attributes.indexOf("Party");
+var care_index = attributes.indexOf("Care");
+var honesty_index = attributes.indexOf("Honesty");
+var egal_index = attributes.indexOf("Egalitarianism");
+var authority_index = attributes.indexOf("Authority");
+var loyalty_index = attributes.indexOf("Loyalty");
+var purity1_index = attributes.indexOf("Purity1");
+var purity2_index = attributes.indexOf("Purity2");
+var competence_index = attributes.indexOf("Competence");
+var experience_index = attributes.indexOf("Experience");
+
+
+// Use IndexOf Dimension and replace with appropriate trait for Candidate A
+// For instance, if "Gender" is the 3rd element in the Dimension variable, 
+//this will place Male/Female as the 3rd element of the first candidate's attributes.
+
+att_a_traits[pid_index] = pid_a;
+att_a_traits[care_index] = care_a;
+att_a_traits[honesty_index] = honesty_a;
+att_a_traits[egal_index] = egal_a;
+att_a_traits[authority_index] = authority_a;
+att_a_traits[loyalty_index] = loyalty_a;
+att_a_traits[purity1_index] = purity1_a;
+att_a_traits[purity2_index] = purity2_a;
+att_a_traits[competence_index] = competence_a;
+att_a_traits[experience_index] = experience_a;
+
+
+// Do the same for the second candidate
+att_b_traits[pid_index] = pid_b;
+att_b_traits[care_index] = care_b;
+att_b_traits[honesty_index] = honesty_b;
+att_b_traits[egal_index] = egal_b;
+att_b_traits[authority_index] = authority_b;
+att_b_traits[loyalty_index] = loyalty_b;
+att_b_traits[purity1_index] = purity1_b;
+att_b_traits[purity2_index] = purity2_b;
+att_b_traits[competence_index] = competence_b;
+att_b_traits[experience_index] = experience_b;
+
+
+// Create list of variables in the for loop
+a_list = ["a1","a2","a3","a4","a5","a6","a7","a8","a9","a10"]; 
+b_list = ["b1","b2","b3","b4","b5","b6","b7","b8","b9","b10"]; 
+
+// Assign traits and background colors to the table cells
+for(i=0;i<10;i++){
+	document.getElementById(a_list[i]).innerHTML = att_a_traits[i];    
+	document.getElementById(b_list[i]).innerHTML = att_b_traits[i];
+	if (att_a_traits[i] != att_b_traits[i]) {
+		document.getElementById(a_list[i]).style.backgroundColor = "#CEE3F6";
+		document.getElementById(b_list[i]).style.backgroundColor = "#CEE3F6";
+	}
+}
+</script>
