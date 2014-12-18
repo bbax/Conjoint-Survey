@@ -2,8 +2,9 @@
 <head>
 <style>
 table.conjoint_table{border-collapse:collapse; border:1px solid black; }
-table.conjoint_table th{border-collapse:collapse; border:1px solid black; padding:5px; }
+table.conjoint_table th{border-collapse:collapse; border:1px solid black; padding:5px; text-align: center; }
 table.conjoint_table td{border-collapse:collapse; border:1px solid black; padding:5px; }
+td.center {	text-align: center; }
 </style>
 </head>
 
@@ -12,65 +13,65 @@ table.conjoint_table td{border-collapse:collapse; border:1px solid black; paddin
 <!--Create HTML table-->
 <font size="3">
 <table width="90%" class="conjoint_table">
-  <col width="40">
-  <col width="140">
-  <col width="140">
+  <col width="170">
+  <col width="25">
+  <col width="25">
   <tbody><tr>
   <th><br></th>
   <th><b>Candidate A</b></th>
   <th><b>Candidate B</b></th>
   </tr>
 <!--Create Placeholders for dimensions names (e.g., "att1") -->
-<!--Create Placeholders for candidate traits (e.g., "a1" for first candidate, "b1" for second candidate) -->
+<!--Create Placeholders for Candidate traits (e.g., "a1" for first Candidate, "b1" for second Candidate) -->
   <tr>
-  <td>Trait 1</td>
-  <td id="a1"><br></td>
-  <td id="b1"><br></td>
+  <td id="att1"><br></td>
+  <td class="center" id="a1"><br></td>
+  <td class="center" id="b1"><br></td>
   </tr>
   <tr>
-  <td>Trait 2</td>
-  <td id="a2"><br></td>
-  <td id="b2"><br></td>
+  <td id="att2"><br></td>
+  <td class="center" id="a2"><br></td>
+  <td class="center" id="b2"><br></td>
   </tr>
   <tr>
-  <td>Trait 3</td>
-  <td id="a3"><br></td>
-  <td id="b3"><br></td>
+  <td id="att3"><br></td>
+  <td class="center" id="a3"><br></td>
+  <td class="center" id="b3"><br></td>
   </tr>
   <tr>
-  <td>Trait 4</td>
-  <td id="a4"><br></td>
-  <td id="b4"><br></td>
+  <td id="att4"><br></td>
+  <td class="center" id="a4"><br></td>
+  <td class="center" id="b4"><br></td>
   </tr>
   <tr>
-  <td>Trait 5</td>
-  <td id="a5"><br></td>
-  <td id="b5"><br></td>
+  <td id="att5"><br></td>
+  <td class="center" id="a5"><br></td>
+  <td class="center" id="b5"><br></td>
   </tr>
   <tr>
-  <td>Trait 6</td>
-  <td id="a6"><br></td>
-  <td id="b6"><br></td>
+  <td id="att6"><br></td>
+  <td class="center" id="a6"><br></td>
+  <td class="center" id="b6"><br></td>
   </tr>
   <tr>
-  <td>Trait 7</td>
-  <td id="a7"><br></td>
-  <td id="b7"><br></td>
+  <td id="att7"><br></td>
+  <td class="center" id="a7"><br></td>
+  <td class="center" id="b7"><br></td>
   </tr>
   <tr>
-  <td>Trait 8</td>
-  <td id="a8"><br></td>
-  <td id="b8"><br></td>
+  <td id="att8"><br></td>
+  <td class="center" id="a8"><br></td>
+  <td class="center" id="b8"><br></td>
   </tr>
   <tr>
-  <td>Trait 9</td>
-  <td id="a9"><br></td>
-  <td id="b9"><br></td>
+  <td id="att9"><br></td>
+  <td class="center" id="a9"><br></td>
+  <td class="center" id="b9"><br></td>
   </tr>
   <tr>
-  <td>Trait 10</td>
-  <td id="a10"><br></td>
-  <td id="b10"><br></td>
+  <td id="att10"><br></td>
+  <td class="center" id="a10"><br></td>
+  <td class="center" id="b10"><br></td>
   </tr>
   </tbody></table>
 </font>
@@ -79,8 +80,8 @@ table.conjoint_table td{border-collapse:collapse; border:1px solid black; paddin
 // Start of JavaScript
 
 // Define the Dimensions
-var attRaw = ["Party","Care","Honesty","Egalitarianism","Authority","Loyalty","Purity1","Purity2","Competence","Experience"];
-var att = ["Party","Care","Honesty","Egalitarianism","Authority","Loyalty","Purity1","Purity2","Competence","Experience"];
+var attRaw = ["Political Party", "Really cares about other people", "Honest", "Treats everyone equally", "Loyal", "Respects authority", "Sexually faithful to his wife", "Disgusted by homosexuality", "Competent", "Experienced"];
+var att = ["Political Party", "Really cares about other people", "Honest", "Treats everyone equally", "Loyal", "Respects authority", "Sexually faithful to his wife", "Disgusted by homosexuality", "Competent", "Experienced"];
 var attributes = ["","","","","","","","","",""];
 
 // Randomize the Order of Dimensions (avoid recency and primacy)
@@ -91,16 +92,16 @@ for (i=0; i<attRaw.length; i++){
 }
 
 // Create Variables for Traits associated with each dimension.
-var pid_raw = ["Democrat","Republican","Independent"];
-var care_raw = ["Cares about other people", "Does not care about other people"];
-var honesty_raw = ["Honest", "Not honest"];
-var egal_raw = ["Treats everyone equally", "Does not treat everyone equally"];
-var authority_raw = ["Respects authority", "Does not respect authority"];
-var loyalty_raw = ["Loyal", "Not loyal"];
-var purity1_raw = ["Sexually faithful to his partner", "Not sexually faithful to his partner"];
-var purity2_raw = ["Disgusted by homosexuality", "Not disgusted by homosexuality"];
-var competence_raw = ["Competent", "Not competent"];
-var experience_raw = ["Has experience", "Does not have experience"];
+var pid_raw = ["Republican","Democrat","Independent"];
+var care_raw = ["Yes","No"];
+var honesty_raw = ["Yes","No"];
+var egal_raw = ["Yes","No"];
+var authority_raw = ["Yes","No"];
+var loyalty_raw = ["Yes","No"];
+var purity1_raw = ["Yes","No"];
+var purity2_raw = ["Yes","No"];
+var competence_raw = ["Yes","No"];
+var experience_raw = ["Yes","No"];
 
 
 // PID constrained not to duplicate
@@ -137,16 +138,17 @@ var att_a_traits = [1,2,3,4,5,6,7,8,9,10];
 var att_b_traits = [1,2,3,4,5,6,7,8,9,10];
 
 // Take indexOf the Dimension variable. This is the order of the Dimension variable
-var pid_index = attributes.indexOf("Party");
-var care_index = attributes.indexOf("Care");
-var honesty_index = attributes.indexOf("Honesty");
-var egal_index = attributes.indexOf("Egalitarianism");
-var authority_index = attributes.indexOf("Authority");
-var loyalty_index = attributes.indexOf("Loyalty");
-var purity1_index = attributes.indexOf("Purity1");
-var purity2_index = attributes.indexOf("Purity2");
-var competence_index = attributes.indexOf("Competence");
-var experience_index = attributes.indexOf("Experience");
+var pid_index = attributes.indexOf("Political Party");
+var care_index = attributes.indexOf("Really cares about other people");
+var honesty_index = attributes.indexOf("Honest");
+var egal_index = attributes.indexOf("Treats everyone equally");
+var authority_index = attributes.indexOf("Loyal");
+var loyalty_index = attributes.indexOf("Respects authority");
+var purity1_index = attributes.indexOf("Sexually faithful to his wife");
+var purity2_index = attributes.indexOf("Disgusted by homosexuality");
+var competence_index = attributes.indexOf("Competent");
+var experience_index = attributes.indexOf("Experienced");
+
 
 
 // Use IndexOf Dimension and replace with appropriate trait for Candidate A
@@ -176,14 +178,17 @@ att_b_traits[competence_index] = competence_b;
 att_b_traits[experience_index] = experience_b;
 
 // Create list of variables in the for loop
+att_list = ["att1","att2","att3","att4","att5","att6","att7","att8","att9","att10"];
 a_list = ["a1","a2","a3","a4","a5","a6","a7","a8","a9","a10"]; 
 b_list = ["b1","b2","b3","b4","b5","b6","b7","b8","b9","b10"]; 
 
 // Assign traits and background colors to the table cells
 for(i=0;i<10;i++){
+	document.getElementById(att_list[i]).innerHTML= attributes[i];
 	document.getElementById(a_list[i]).innerHTML = att_a_traits[i];    
 	document.getElementById(b_list[i]).innerHTML = att_b_traits[i];
 	if (att_a_traits[i] != att_b_traits[i]) {
+		document.getElementById(att_list[i]).style.backgroundColor = "#CEE3F6";
 		document.getElementById(a_list[i]).style.backgroundColor = "#CEE3F6";
 		document.getElementById(b_list[i]).style.backgroundColor = "#CEE3F6";
 	}
