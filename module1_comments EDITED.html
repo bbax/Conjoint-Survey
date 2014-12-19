@@ -76,13 +76,16 @@ td.center {	text-align: center; }
   </tbody></table>
 </font>
 
+<p id="attributes"></p>
+
 <script>
 // Start of JavaScript
 
 // Define the Dimensions
-var attRaw = ["Political Party", "Really cares about other people", "Honest", "Treats everyone equally", "Loyal", "Respects authority", "Sexually faithful to his wife", "Disgusted by homosexuality", "Competent", "Experienced"];
-var att = ["Political Party", "Really cares about other people", "Honest", "Treats everyone equally", "Loyal", "Respects authority", "Sexually faithful to his wife", "Disgusted by homosexuality", "Competent", "Experienced"];
+var attRaw = ["Political Party", "Compassionate", "Dishonest", "Treats everyone equally", "Loyal", "Respectful", "Sexually unfaithful", "Disgusted by homosexuality", "Competent", "Inexperienced"];
+var att = ["Political Party", "Compassionate", "Dishonest", "Treats everyone equally", "Loyal", "Respectful", "Sexually unfaithful", "Disgusted by homosexuality", "Competent", "Inexperienced"];
 var attributes = ["","","","","","","","","",""];
+
 
 // Randomize the Order of Dimensions (avoid recency and primacy)
 for (i=0; i<attRaw.length; i++){
@@ -101,7 +104,7 @@ var loyalty_raw = ["Yes","No"];
 var purity1_raw = ["Yes","No"];
 var purity2_raw = ["Yes","No"];
 var competence_raw = ["Yes","No"];
-var experience_raw = ["Yes","No"];
+var inexperience_raw = ["Yes","No"];
 
 
 // PID constrained not to duplicate
@@ -119,7 +122,7 @@ var loyalty_a = loyalty_raw[Math.floor(Math.random()*loyalty_raw.length)];
 var purity1_a = purity1_raw[Math.floor(Math.random()*purity1_raw.length)];
 var purity2_a = purity2_raw[Math.floor(Math.random()*purity2_raw.length)];
 var competence_a = competence_raw[Math.floor(Math.random()*competence_raw.length)];
-var experience_a = experience_raw[Math.floor(Math.random()*experience_raw.length)];
+var inexperience_a = inexperience_raw[Math.floor(Math.random()*inexperience_raw.length)];
 
 var pid_b = pid_raw[Math.floor(Math.random()*pid_raw.length)];
 var care_b = care_raw[Math.floor(Math.random()*care_raw.length)];
@@ -130,7 +133,7 @@ var loyalty_b = loyalty_raw[Math.floor(Math.random()*loyalty_raw.length)];
 var purity1_b = purity1_raw[Math.floor(Math.random()*purity1_raw.length)];
 var purity2_b = purity2_raw[Math.floor(Math.random()*purity2_raw.length)];
 var competence_b = competence_raw[Math.floor(Math.random()*competence_raw.length)];
-var experience_b = experience_raw[Math.floor(Math.random()*experience_raw.length)];
+var inexperience_b = inexperience_raw[Math.floor(Math.random()*inexperience_raw.length)];
 
 
 // Create array for first and second candidate's traits
@@ -139,7 +142,7 @@ var att_b_traits = [1,2,3,4,5,6,7,8,9,10];
 
 // Take indexOf the Dimension variable. This is the order of the Dimension variable
 var pid_index = attributes.indexOf("Political Party");
-var care_index = attributes.indexOf("Really cares about other people");
+var care_index = attributes.indexOf("Compassionate");
 var honesty_index = attributes.indexOf("Honest");
 var egal_index = attributes.indexOf("Treats everyone equally");
 var authority_index = attributes.indexOf("Loyal");
@@ -147,7 +150,7 @@ var loyalty_index = attributes.indexOf("Respects authority");
 var purity1_index = attributes.indexOf("Sexually faithful to his wife");
 var purity2_index = attributes.indexOf("Disgusted by homosexuality");
 var competence_index = attributes.indexOf("Competent");
-var experience_index = attributes.indexOf("Experienced");
+var inexperience_index = attributes.indexOf("inexperienced");
 
 
 
@@ -163,7 +166,7 @@ att_a_traits[loyalty_index] = loyalty_a;
 att_a_traits[purity1_index] = purity1_a;
 att_a_traits[purity2_index] = purity2_a;
 att_a_traits[competence_index] = competence_a;
-att_a_traits[experience_index] = experience_a;
+att_a_traits[inexperience_index] = inexperience_a;
 
 // Do the same for the second candidate
 att_b_traits[pid_index] = pid_b;
@@ -175,7 +178,7 @@ att_b_traits[loyalty_index] = loyalty_b;
 att_b_traits[purity1_index] = purity1_b;
 att_b_traits[purity2_index] = purity2_b;
 att_b_traits[competence_index] = competence_b;
-att_b_traits[experience_index] = experience_b;
+att_b_traits[inexperience_index] = inexperience_b;
 
 // Create list of variables in the for loop
 att_list = ["att1","att2","att3","att4","att5","att6","att7","att8","att9","att10"];
@@ -193,4 +196,8 @@ for(i=0;i<10;i++){
 		document.getElementById(b_list[i]).style.backgroundColor = "#CEE3F6";
 	}
 }
+
+document.getElementById("attributes").innerHTML = attributes;
+
 </script>
+
